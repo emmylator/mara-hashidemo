@@ -21,3 +21,7 @@ $ terraform apply
 ```
 
 Note that this example may create resources which cost money. Run `terraform apply -destroy` when you don't need these resources.
+
+## Known Issues
+
+Sometimes this module hangs too long during NAT gateway deployment, causing the rest of the `terraform apply` request to timeout with an error `400` (usually during route creation). Just rerun `terraform apply` to destroy the corrupted routes and rebuild what's left.
