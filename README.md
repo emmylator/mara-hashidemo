@@ -12,7 +12,8 @@ v0.1 release notes:
 ## About This Repo
 
 This repo contains all of the modules needed to–-
-* Deploy a Postgres database and EC2 operator in a new application VPC, including IAM instance profiles and security group rules
+* Deploy a Postgres database in a new application VPC, including IAM instance profiles and security group rules
+* Deploy an EC2 operator in the application VPC
 * Spin up a separate AWS VPC for Vault
 * Create self-signed ACM certificates and TLS secrets for use by load balancer and Vault nodes
 * Peer the Vault VPC with the application VPC 
@@ -22,6 +23,16 @@ What won’t be covered this time:
 * Using Vault UI
 * Refactoring application to integrate with Vault tokens (dynamic secrets will still be provisioned)
 * Best practices for centralized secrets management, including key namespaces
+
+## How to Use
+
+Navigate to the root of each top module in the following order (order is important):
+1. `provision-postgres-singleaz`
+2. `deploy-operator-asg`
+3. `provision-vault-vpc`
+4. `generate-tls`
+5. `peer-from-vault`
+6. `install-vault`
 
 ## Demo Pre-Requisites
 
