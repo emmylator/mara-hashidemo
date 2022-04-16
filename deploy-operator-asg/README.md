@@ -1,4 +1,6 @@
-# Demo EC2 instance for deployment into application environments. Optional step to be used after `provision-postgres-singleaz`.
+# Demo EC2 Instance Deployment
+
+Demo EC2 instance for deployment into application environments. Pre-installed with Postgres client. Optional step to be used after `provision-postgres-singleaz`.
 
 Configuration in this directory creates the following:
 
