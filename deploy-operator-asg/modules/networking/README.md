@@ -1,17 +1,3 @@
-# AWS Networking Module
+# AWS Networking Module -- Deploy with parent `deploy-operator-asg` module.
 
-## Required variables
-
-* `private_subnet_tags` - Tags which specify the subnets to deploy Vault into
-* `vpc_id` - VPC ID where Vault will be deployed
-
-## Example usage
-
-```hcl
-module "networking" {
-  source = "./modules/networking"
-
-  private_subnet_tags = var.private_subnet_tags
-  vpc_id              = var.vpc_id
-}
-```
+The `networking` module currently uses the `aws_subnet_ids` data source, which has been deprecated. Update this module to use `aws_subnets` instead.

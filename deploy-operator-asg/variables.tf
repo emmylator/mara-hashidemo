@@ -40,11 +40,11 @@ variable "node_count" {
   description = "Number of operator instances to deploy in ASG"
 }
 
-variable "private_subnet_tags" {
+variable "public_subnet_tags" {
   type        = map(string)
   description = "Tags which specify the subnets to deploy operator instance into"
   default     = {
-    Name = "tf-postgresql-public-us-west-2*"
+    Public = "deploy"
   }
 }
 

@@ -26,7 +26,7 @@ module "iam" {
 module "networking" {
     source = "./modules/networking"
   
-    private_subnet_tags = var.private_subnet_tags
+    public_subnet_tags = var.public_subnet_tags
     vpc_id              = var.vpc_id
   }
 
@@ -86,7 +86,7 @@ resource "aws_autoscaling_group" "op-asg" {
   min_size            = var.node_count
   max_size            = var.node_count
   desired_capacity    = var.node_count
-  vpc_zone_identifier = module.networking.vault_subnet_ids
+  vpc_zone_identifier = module.networking.public_subnet_tags
 
   launch_template {
     id      = aws_launch_template.operator.id

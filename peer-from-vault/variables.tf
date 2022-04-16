@@ -2,12 +2,12 @@ variable "region" {
   default = "us-west-2"
 }
 
-# Accepter VPC (Application)
 variable "peer_vpc_id" {
   default = "insert-application-vpc-id-here"
+  description = "Accepter VPC (Application)"
 }
 
-# Requester VPC (Vault)
 variable "vpc_id" {
   default = "insert-vault-vpc-id-here"
+  description = "Requester VPC (Vault)"
 }

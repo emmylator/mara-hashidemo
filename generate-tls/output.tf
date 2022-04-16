@@ -4,8 +4,8 @@ output "lb_certificate_arn" {
 }
 
 output "leader_tls_servername" {
-  description = "Shared SAN that will be given to the Vault nodes configuration for use as leader_tls_servername"
-  value       = var.shared_san
+  description = "Shared SAN that will be given to the Vault nodes configuration for use as leader_tls_servername. Same as common_name."
+  value       = var.common_name
 }
 
 output "secrets_manager_arn" {

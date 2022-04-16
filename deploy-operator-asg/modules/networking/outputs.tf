@@ -1,4 +1,4 @@
-output "vault_subnet_ids" {
+output "public_subnet_tags" {
   value = data.aws_subnet_ids.operator.ids
 }
 

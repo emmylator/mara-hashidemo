@@ -1,8 +1,3 @@
-# Setup AWS provider.
-provider "aws" {
-  region = var.region
-}
-
 # Make AWS account ID and VPC metadata available.
 # This is added as an output so that other stacks can reference this.
 # Required for VPC peering.
@@ -16,7 +11,7 @@ data "aws_route_tables" "postgres" {
 
 # VPC peering connection.
 # Establishes a relationship resource between the "vault" and "postgres" VPCs.
-resource "aws_vpc_peering_connection" "mara-vpc-peering" {
+resource "aws_vpc_peering_connection" "mesh-vpc-peering" {
   peer_owner_id = data.aws_caller_identity.current.account_id
   peer_vpc_id   = var.peer_vpc_id
   vpc_id        = var.vpc_id
@@ -35,7 +30,7 @@ resource "aws_route" "vault2postgres" {
   count                     = length(data.aws_route_tables.vault.ids)
   route_table_id            = tolist(data.aws_route_tables.vault.ids)[count.index]
   destination_cidr_block    = "192.168.0.0/18"
-  vpc_peering_connection_id = resource.aws_vpc_peering_connection.mara-vpc-peering.id
+  vpc_peering_connection_id = resource.aws_vpc_peering_connection.mesh-vpc-peering.id
 }
 
 # Route rule.
@@ -46,5 +41,5 @@ resource "aws_route" "postgres2vault" {
   count                     = length(data.aws_route_tables.postgres.ids)
   route_table_id            = tolist(data.aws_route_tables.postgres.ids)[count.index]
   destination_cidr_block    = "10.0.0.0/16"
-  vpc_peering_connection_id = resource.aws_vpc_peering_connection.mara-vpc-peering.id
+  vpc_peering_connection_id = resource.aws_vpc_peering_connection.mesh-vpc-peering.id
 }

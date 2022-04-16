@@ -12,10 +12,6 @@ data "aws_security_groups" "postgres" {
 }
 
 # Security Group rule.
-# Creates a new SG rule on the "Vault" security groups. Allows
-# Postgres cross-vpc traffic from the "Postgres" VPC's IP range to SGs.
-
-# Security Group rule.
 # Creates a new SG rule on the "Postgres" security groups. Allows
 # Postgres cross-vpc traffic from the "Vault" VPC's IP range to SGs.
 resource "aws_security_group_rule" "VaultIncoming" {

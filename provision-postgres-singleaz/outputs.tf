@@ -3,19 +3,16 @@ output "vpc_id" {
   value       = module.vpc.vpc_id
 }
 
-output "db_instance_address" {
-  description = "The address of the RDS instance"
-  value       = module.db.db_instance_address
-}
-
 output "db_instance_endpoint" {
   description = "The connection endpoint"
   value       = module.db.db_instance_endpoint
+  sensitive   = true
 }
 
 output "db_instance_name" {
   description = "The database name"
   value       = module.db.db_instance_name
+  sensitive   = true
 }
 
 output "db_instance_username" {

@@ -7,7 +7,7 @@ module "vault-ent" {
   source  = "hashicorp/vault-ent-starter/aws"
   version = "0.1.2"
 
-  # !! new test of provisioning different EC2 instances for the Vault cluster !!
+  # Define your preferred instance type in the variables configuration
   instance_type = var.instance_type
   # prefix for tagging/naming AWS resources
   resource_name_prefix = var.resource_name_prefix
@@ -25,5 +25,9 @@ module "vault-ent" {
   # The cert ARN to be used on the Vault LB listener
   lb_certificate_arn = var.lb_certificate_arn
 
+  # Vault Enterprise version to install on nodes
+  vault_version = var.vault_version
+
+  # Vault Enterprise license path
   vault_license_filepath = var.vault_license_filepath
 }

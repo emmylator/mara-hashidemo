@@ -4,6 +4,6 @@ output "private_subnet_tags" {
 }
 
 output "vpc_id" {
-  description = "The ID of the VPC"
+  description = "The ID of the Vault VPC"
   value       = module.vpc.vpc_id
 }

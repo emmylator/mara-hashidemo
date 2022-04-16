@@ -4,6 +4,12 @@ variable "aws_region" {
   default     = "us-west-2"
 }
 
+variable "common_name" {
+  type        = string
+  description = "Common name for the TLS certificate"
+  default     = "vault.server.com"
+}
+
 variable "kms_key_id" {
   type        = string
   description = "Specifies the ARN or ID of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named aws/secretsmanager"
@@ -20,13 +26,6 @@ variable "resource_name_prefix" {
   type        = string
   description = "Prefix for resource names (e.g. \"prod\")"
   default     = "mara"
-}
-
-# variable related to TLS cert generation
-variable "shared_san" {
-  type        = string
-  description = "This is a shared server name that the certs for all Vault nodes contain. This is the same value you will supply as input to the Vault installation module for the leader_tls_servername variable."
-  default     = "vault.server.com"
 }
 
 variable "tags" {
