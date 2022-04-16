@@ -50,6 +50,6 @@ To get started with any steps in this demo, validate Vault deployment prerequisi
 
 The majority of this code is modified from a pre-existing module released under the 
 Mozilla Public License 2.0. 
-Please see [MODULE] (https://registry.terraform.io/modules/hashicorp/vault-ent-starter/aws/latest) 
+Please see [MODULE](https://registry.terraform.io/modules/hashicorp/vault-ent-starter/aws/latest) 
 and [LICENSE](https://github.com/hashicorp/terraform-aws-vault-ent-starter/blob/main/LICENSE)
 for more details.
