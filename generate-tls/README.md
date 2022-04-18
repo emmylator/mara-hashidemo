@@ -3,7 +3,7 @@
 Configuration in this directory creates the following:
 
 - Locally-signed TLS certificates, uploaded to AWS as--
-  - 1x AWS Secrets Manager secret containing private keys for Vault nodes
+  - 1x AWS Secrets Manager secret for Vault node recovery keys
   - 1x AWS ACM TLS certificate for securing the Vault load balancer
 
 Following successful deployment, outputs are provided for `lb_certificate_arn`, `leader_tls_servername`, and `secrets_manager_arn`. Save these values for use with the Vault Enterprise installer later.
