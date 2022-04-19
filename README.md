@@ -1,6 +1,10 @@
 # mara-hashidemo
  Repo for HashiCorp technical demo, presented by Mara Hammond
 
+v0.3 release notes:
+* Added security group rules for HTTPS traffic on application network
+* Cleaned up a few variables
+
 v0.2 release notes:
 * Code review conducted on all modules, revisions all over
 * README.MD files updated pretty much everywhere
@@ -30,8 +34,8 @@ Navigate to the root of each top module in the following order (order is importa
 1. `provision-postgres-singleaz`
 2. `deploy-operator-asg`
 3. `provision-vault-vpc`
-4. `generate-tls`
-5. `peer-from-vault`
+4. `peer-from-vault`
+5. `generate-tls`
 6. `install-vault`
 
 ## Demo Pre-Requisites

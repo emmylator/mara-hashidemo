@@ -4,8 +4,9 @@ Configuration in this directory creates the following:
 
 - 1x VPC peering connection, requested from the Vault VPC and auto-accepted by the Application VPC
 - Bilateral sets of VPC routes connecting the Application CIDR block (192.168.0.0/18) to the Vault CIDR block (10.0.0.0/16)
-- Security group rules in the application security groups to permit incoming Postgres traffic from the Vault VPC
-    - Testing purposes only: for use if PSQL is installed on a Vault node instead of a separate EC2 operator instance
+- Security group rules in the application security groups to permit 
+    - ingress Postgres traffic from the Vault VPC
+    - ingress/egress HTTPS traffic to/from the Vault VPC
 
 ## Required Variables
 

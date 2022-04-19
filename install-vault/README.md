@@ -31,6 +31,7 @@ It installs the Enterprise version of Vault 1.10.0-1 (default is 1.8+).
 
 - `lb_certificate_arn` - The AWS ACM certificate ARN generated from the `generate-tls` module
 - `leader_tls_servername` - The Server Common Name defined in the `generate-tls` module
+- `private_subnet_tags` - Defines which subnets (tagged as Vault:deploy) installer will deploy nodes to. Also generated from the `generate-tls` module
 - `secrets_manager_arn` - The AWS Secrets Manager ARN generated from the `generate-tls` module
 - `vpc_id` - The Vault `vpc_id` generated from the `provision-vault-vpc` module
 

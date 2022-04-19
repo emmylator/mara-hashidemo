@@ -17,6 +17,14 @@ variable "leader_tls_servername" {
     description = "The shared DNS SAN of the TLS certs being used"
 }
 
+variable "private_subnet_tags" {
+  type        = map(string)
+  description = "Tags which specify the subnets to deploy Vault nodes into"
+  default     = {
+    Vault = "deploy"
+  }
+}
+
 variable "region" {
     type    = string
     default = "us-west-2"

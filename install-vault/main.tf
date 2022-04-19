@@ -15,9 +15,7 @@ module "vault-ent" {
   vpc_id = var.vpc_id
   # private subnet tags are required and allow you to filter which
   # subnets you will deploy your Vault nodes into
-  private_subnet_tags = {
-    Vault = "deploy"
-  }
+  private_subnet_tags = var.private_subnet_tags
   # AWS Secrets Manager ARN where TLS certs are stored
   secrets_manager_arn = var.secrets_manager_arn
   # The shared DNS SAN of the TLS certs being used

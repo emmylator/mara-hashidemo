@@ -29,7 +29,7 @@ resource "aws_vpc_peering_connection" "mesh-vpc-peering" {
 resource "aws_route" "vault2postgres" {
   count                     = length(data.aws_route_tables.vault.ids)
   route_table_id            = tolist(data.aws_route_tables.vault.ids)[count.index]
-  destination_cidr_block    = "192.168.0.0/18"
+  destination_cidr_block    = var.app_destination_cidr_block
   vpc_peering_connection_id = resource.aws_vpc_peering_connection.mesh-vpc-peering.id
 }
 
@@ -40,6 +40,6 @@ resource "aws_route" "vault2postgres" {
 resource "aws_route" "postgres2vault" {
   count                     = length(data.aws_route_tables.postgres.ids)
   route_table_id            = tolist(data.aws_route_tables.postgres.ids)[count.index]
-  destination_cidr_block    = "10.0.0.0/16"
+  destination_cidr_block    = var.vault_destination_cidr_block
   vpc_peering_connection_id = resource.aws_vpc_peering_connection.mesh-vpc-peering.id
 }
